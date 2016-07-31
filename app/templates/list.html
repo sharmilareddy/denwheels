@@ -1,0 +1,30 @@
+﻿<div>
+
+    <div ng-repeat="wheel in $ctrl.wheelsList">
+        <a ui-sref="details({ id: wheel.id })"><h1> {{ wheel.title }} </h1></a>
+        <p>{{ wheel.description }}</p>
+
+
+        <img src="/app/{{ wheel.imageUrl }}" width="100" height="100" alt="{{ wheel.title }}" />
+
+        <div>
+            <label>Rating:</label><b>{{ wheel.rating }}</b>
+            <button class="btn btn-default" ng-click="$ctrl.goToDetailsPage(wheel.id)">Read Reviews</button>
+        </div>
+
+
+        <h1>Offers</h1><hr />
+        <div ng-if="wheel.offers.length > 0">
+            <ul>
+                <li ng-repeat="offer in wheel.offers">
+                    {{ offer.description }}
+                </li>
+            </ul>
+        </div>
+        <div ng-if="wheel.offers.length == 0">
+            <label>No offers</label>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+﻿<div>
+
+    <div>
+
+        <h1>{{ $ctrl.wheel.title }}</h1>
+        <p> {{ $ctrl.wheel.description }}</p>
+    </div>
+
+    <hr />
+
+
+    <h1>Reviews</h1>
+
+
+    <div ng-repeat="review in $ctrl.wheel.reviews">
+        <h2>{{ review.title }}</h2> <span>{{ review.rating }}</span>
+        <p>{{ review.description }}</p>
+        <label>By: {{ review.username }}  On: {{ review.date }}</label>
+        
+    </div>
+
+    <hr />
+
+    <div>
+        <h1>Write a review</h1>
+        <hr />
+        <div><label>Title:</label> <input ng-model="$ctrl.review.title" type="text" /></div>
+        <div>
+            <label>Description:</label>
+            <textarea rows="10" cols="50" ng-model="$ctrl.review.description"> </textarea>
+        </div>
+        <div>
+            <label>Rating</label><input type="text" ng-model="$ctrl.review.rating"/>
+        </div>
+        <button class="btn btn-primary" ng-click="$ctrl.saveReview()">Submit</button>
+        <button class="btn btn-default" ng-click="$ctrl.goBackToList()">Cancel</button>
+    </div>
+    
+
+</div>
