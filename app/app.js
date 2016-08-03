@@ -27,6 +27,7 @@
     });
 
 
+    // bootstrap your application
     angular.bootstrap(document, ["myapp"]);
 
 
