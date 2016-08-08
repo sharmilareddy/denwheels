@@ -4,6 +4,7 @@
     <title>DenWheel - Welcome !</title>
 
     <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="styles/stickyfooter.css" rel="stylesheet" />
 
 	<meta charset="utf-8" />
 
@@ -12,9 +13,21 @@
 
     <header></header>
 
-    <div ui-view></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div ui-view></div>
+        </div>
+    </div>
 
-    <footer></footer>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Place sticky footer content here.</p>
+        </div>
+    </footer>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
 
     <!-- Framework -->
     <script src="../bower_components/angular/angular.js"></script>

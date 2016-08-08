@@ -1,14 +1,24 @@
-﻿<div>
-    <div>
-        <select>
+﻿<div class="row">
+    <div class="form-group form-inline">
+        <select class="form-control">
             <option>Hyderabad</option>
         </select>
 
-        <label><input type="radio" name="type" ng-model="$ctrl.app.type" value="car" />Car</label>
+        <div class="form-group">
+            <label>
+                <input type="radio" name="type" ng-model="$ctrl.app.type" value="car" />Car
+            </label>
+        </div>
 
-        <label><input type="radio" name="type" ng-model="$ctrl.app.type" value="bike" />Bike</label>
+        <div class="form-group">
+            <label>
+                <input type="radio" name="type" ng-model="$ctrl.app.type" value="bike" />Bike
+            </label>
+        </div>
 
-        <input type="text" name="place" ng-model="$ctrl.app.place" />
+        <div class="form-group">
+            <input type="text" class="form-control" name="place" ng-model="$ctrl.app.place" />
+        </div>
 
         <button class="btn btn-primary" ng-click="$ctrl.search()">Search</button>
     </div>

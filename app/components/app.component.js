@@ -8,7 +8,7 @@
     });
 
 
-    app.component("footer", {
+    app.component("myFooter", {
         templateUrl: "templates/footer.html"
     });
 
@@ -16,6 +16,17 @@
     app.component("home", {
 
         templateUrl: "templates/home.html",
+
+        controller: [function () {
+
+
+        }]
+
+    });
+
+    app.component("navbar", {
+
+        templateUrl: "templates/navbar.html",
 
         controller: [function () {
 
