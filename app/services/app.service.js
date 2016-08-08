@@ -39,11 +39,28 @@
 
             saveReview: function (args) {
 
+                var error = [];
+
+                if (!args.title) {
+                    error.push("Review title must not be empty")
+                }
+
+                if (!args.description) {
+                    error.push("Review description must not be empty");
+                }
+
+                if (!args.rating) {
+                    error.push("Rating must not be empty");
+                }
+
                 return $q(function (resolve, reject) {
 
                     setTimeout(function () {
 
-                        resolve("done");
+                        if (error.length === 0)
+                            resolve("done");
+                        else
+                            reject(error);
 
 
                     }, 100);

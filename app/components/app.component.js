@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var app = angular.module("dw.components", ["ui.router"]);
+    var app = angular.module("dw.components", ["ui.router", "angular-growl"]);
 
     app.component("header", {
         templateUrl: "templates/header.html"
@@ -39,31 +39,43 @@
 
         templateUrl: "templates/details.html",
 
-        controller: ["data.service.get", "$state", function (data, $state) {
+        controller: ["data.service.get", "$state", "growl", function (data, $state, growl) {
 
             var that = this;
 
+            this.review = {};
             this.wheel = {};
 
-            this.wheel.title = "";
-            this.wheel.description = "";
-            this.wheel.rating = 0;
+            this.review.title = "";
+            this.review.description = "";
+            this.review.rating = 0;
 
-            this.wheel.reviews = [];
+            this.review.reviews = [];
 
             // event handlers
             this.saveReview = function () {
 
-                var args = { title: that.wheel.title, description: that.wheel.description, rating: that.wheel.rating };
+                var args = { title: that.review.title, description: that.review.description, rating: that.review.rating };
 
                 data.saveReview(args).then(function () {
 
                     return data.getServiceCenterDetailsByID(parseInt(that.id));
 
+                }, function (errors) {
+
+                    for (var i = 0; i < errors.length; i++) {
+                        growl.error(errors[i]);
+                    }
+
+                    return null;
+
                 })
                 .then(function (response) {
-                    response.reviews.push({ title: "Test", description: "", rating: 2, username: "Test", date: "12/21/2015" });
-                    that.wheel = response;
+
+                    if (response) {
+                        response.reviews.push({ title: "Test", description: "", rating: 2, username: "Test", date: "12/21/2015" });
+                        that.review = response;
+                    }
                 });
             }
 
