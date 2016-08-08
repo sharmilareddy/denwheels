@@ -21,16 +21,18 @@
 
     <hr />
 
-    <div>
+    <div class="form-group">
         <h1>Write a review</h1>
         <hr />
-        <div><label>Title:</label> <input ng-model="$ctrl.review.title" type="text" /></div>
-        <div>
-            <label>Description:</label>
-            <textarea rows="10" cols="50" ng-model="$ctrl.review.description"> </textarea>
+        <div class="form-group">
+            <label>Title:</label> <input ng-model="$ctrl.review.title" type="text" class="form-control" />
         </div>
-        <div>
-            <label>Rating</label><input type="text" ng-model="$ctrl.review.rating"/>
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea rows="10" cols="50" ng-model="$ctrl.review.description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Rating</label><input type="text" ng-model="$ctrl.review.rating" class="form-control" />
         </div>
         <button class="btn btn-primary" ng-click="$ctrl.saveReview()">Submit</button>
         <button class="btn btn-default" ng-click="$ctrl.goBackToList()">Cancel</button>
